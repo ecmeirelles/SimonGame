@@ -1,23 +1,24 @@
 package application;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JPanel;
 import javax.swing.JRadioButtonMenuItem;
 import javax.swing.UIManager;
-import javax.swing.border.EmptyBorder;
-import drawing.Drawing;
+import drawing.DrawingPanel;
 
 /* Class that represents the main window of the game */
 public class Game extends JFrame {
 	/* Game attributes */
 	private static final long serialVersionUID = 1L;
-	private JPanel pane;
+	public static Game simonSays;
+	
 	private JMenuBar menuBar;
 	private JMenu gameMenu;
 	private JMenu settingsMenu;
@@ -35,6 +36,8 @@ public class Game extends JFrame {
 	private JRadioButtonMenuItem symbolItem;
 	private ButtonGroup groupDifficulty;
 	private ButtonGroup groupTheme;
+	
+	private DrawingPanel simonArea = new DrawingPanel();
 	
 	/* Constants to standardize all fonts */
 	public final String FONT_MENU = "Andalus";
@@ -55,11 +58,7 @@ public static void main(String[] args) {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		pane = new JPanel();
-		pane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(pane);
-		/* Set layout as null means set it as AbsolutLayout */
-		pane.setLayout(null);
+		add(simonArea);
 		
 		/* Create a menu bar in the top */
 		menuBar = new JMenuBar();
@@ -126,15 +125,39 @@ public static void main(String[] args) {
 		questionMenu.add(howToPlayItem);
 	}
 	
-	/* Function to add the drawings into the panel */
-	Drawing drawing = new Drawing();
 	public void paint(Graphics g) {
+		Graphics2D g2 = (Graphics2D) g;
 		super.paint(g);
 		
-		drawing.drawBase(g);
-		drawing.drawGreenArea(g);
-		drawing.drawRedArea(g);
-		drawing.drawYellowArea(g);
-		drawing.drawBlueArea(g);
+		/* Drawing the main circle */
+		g2.fillOval(150, 100, 700, 700);
+		/* Drawing the rectangles in the middle */
+		g2.setColor(Color.BLACK);
+		g2.fillRect(470, 130, 50, 640);
+		g2.fillRect(180, 420, 640, 50);
+		
+		g2.setColor(Color.GREEN);
+		g2.fillArc(180, 130, 580, 580, 90, 90);
+		/* Drawing the circle in the middle */
+		g2.setColor(Color.BLACK);
+		g2.fillOval(395, 345, 200, 200);
+		
+		g2.setColor(Color.RED);
+		g2.fillArc(220, 130, 600, 580, 0, 90);
+		/* Drawing the circle in the middle */
+		g2.setColor(Color.BLACK);
+		g2.fillOval(395, 345, 200, 200);
+		
+		g2.setColor(Color.YELLOW);
+		g2.fillArc(180, 170, 580, 600, 180, 90);
+		/* Drawing the circle in the middle */
+		g2.setColor(Color.BLACK);
+		g2.fillOval(395, 345, 200, 200);
+		
+		g2.setColor(Color.BLUE);
+		g2.fillArc(220, 170, 600, 600, 0, -90);
+		/* Drawing the circle in the middle */
+		g2.setColor(Color.BLACK);
+		g2.fillOval(395, 345, 200, 200);
 	}
 }
