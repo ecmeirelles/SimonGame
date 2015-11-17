@@ -1,6 +1,7 @@
 package application;
 
 import java.awt.Font;
+import java.awt.Graphics;
 import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -10,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButtonMenuItem;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
+import drawing.Drawing;
 
 /* Class that represents the main window of the game */
 public class Game extends JFrame {
@@ -122,5 +124,13 @@ public static void main(String[] args) {
 		/* Create a menu item called How to Play inside ? menu */
 		howToPlayItem = new JMenuItem("How to Play");
 		questionMenu.add(howToPlayItem);
+	}
+	
+	/* Function to add the drawings into the panel */
+	Drawing drawing = new Drawing();
+	public void paint(Graphics g) {
+		super.paint(g);
+		
+		drawing.drawBase(g);
 	}
 }
