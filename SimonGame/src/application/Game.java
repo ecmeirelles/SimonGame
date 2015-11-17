@@ -132,5 +132,9 @@ public static void main(String[] args) {
 		super.paint(g);
 		
 		drawing.drawBase(g);
+		drawing.drawGreenArea(g);
+		drawing.drawRedArea(g);
+		drawing.drawYellowArea(g);
+		drawing.drawBlueArea(g);
 	}
 }
