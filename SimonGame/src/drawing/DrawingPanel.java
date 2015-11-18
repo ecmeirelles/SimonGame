@@ -13,7 +13,7 @@ public class DrawingPanel extends JPanel {
 	
 	public Game game;
 	
-	/* Constructor to receive an instance of SimonSays */
+	/* Constructor to receive an instance of Game */
 	public DrawingPanel(Game simonGame) {
 		this.game = simonGame;
 	}
