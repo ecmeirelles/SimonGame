@@ -11,6 +11,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JRadioButtonMenuItem;
+import javax.swing.Timer;
 import javax.swing.UIManager;
 
 import drawing.DrawingPanel;
@@ -44,7 +45,8 @@ public class Game extends JFrame {
 	public ArrayList<Integer> playerSequence = new ArrayList<Integer>();
 	
 	private DrawingPanel simonArea = new DrawingPanel(this);
-	private GameFunction simonFunction = new GameFunction(this);
+	private GameFunction simonFunction = new GameFunction(this, simonArea);
+	private Timer timer = new Timer(20, simonFunction);
 	
 	/* Constants to standardize all fonts */
 	public final String FONT_MENU = "Andalus";
@@ -57,6 +59,8 @@ public class Game extends JFrame {
 		/* Disable resize */
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		timer.start();
 		
 		/* Add an action to every time that the player clicks in some area */
 		addMouseListener( new MouseAdapter() {
@@ -71,6 +75,7 @@ public class Game extends JFrame {
 					/* activeColor is set as 1 and this number is add to the playerSequence */
 					activeColor = 1;
 					playerSequence.add(1);
+					simonFunction.setTick(1);
 				}
 				
 				/* If the player clicks in the red area */
@@ -78,6 +83,7 @@ public class Game extends JFrame {
 					/* activeColor is set as 2 and this number is add to the playerSequence */
 					activeColor = 2;
 					playerSequence.add(2);
+					simonFunction.setTick(1);
 				}
 				
 				/* If the player clicks in the yellow area */
@@ -85,6 +91,7 @@ public class Game extends JFrame {
 					/* activeColor is set as 3 and this number is add to the playerSequence */
 					activeColor = 3;
 					playerSequence.add(3);
+					simonFunction.setTick(1);
 				}
 				
 				/* If the player clicks in the blue area */
@@ -92,10 +99,8 @@ public class Game extends JFrame {
 					/* activeColor is set as 4 and this number is add to the playerSequence */
 					activeColor = 4;
 					playerSequence.add(4);
+					simonFunction.setTick(1);
 				}
-				
-				/* The drawing is repainted to implement the new settings */
-				simonArea.repaint();
 			}
 		});
 		
