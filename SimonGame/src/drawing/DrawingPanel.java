@@ -2,6 +2,7 @@ package drawing;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
@@ -24,6 +25,7 @@ public class DrawingPanel extends JPanel {
 		/* Cast to use Graphics as Graphics2D */
 		Graphics2D g2 = (Graphics2D) g;
 		super.paintComponent(g2);
+		
 		
 		/* If the game's attribute activeColor is equal to 1, then color is set as green */
 		if (game.activeColor == 1) {
@@ -82,6 +84,6 @@ public class DrawingPanel extends JPanel {
 		/* Create the circle and the rectangles in the middle */
 		g2.fillOval(322, 290, 250, 250);
 		g2.fillRect(422, 0, 50, 830);
-		g2.fillRect(0, 400, 895, 50);
+		g2.fillRect(0, 400, 895, 50);		
 	}
 }

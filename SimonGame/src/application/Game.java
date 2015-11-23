@@ -91,8 +91,21 @@ public class Game extends JFrame {
 					/* activeColor is set as 4 */
 					activeColor = 4;
 				}
-			}
-		});
+				
+				/* Every time the player clicks in a colorful area */
+				if (activeColor != 0) {
+					/* It compares if the area clicked is the same that one in the game sequence */
+					if (simonFunction.getGameSequence().get(simonFunction.getMovements()) == activeColor) {
+						/* If so, increases the movement to compare the next one (if applicable) */
+						simonFunction.setMovements(simonFunction.getMovements()+1);
+					}
+					/* Otherwise, the game ends */
+					else {
+						simonFunction.setGameOver(true);
+					}
+				}
+			} // end of mouseClicked
+		}); // end of mouseListener
 		
 		/* Create a menu bar in the top */
 		menuBar = new JMenuBar();
