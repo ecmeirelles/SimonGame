@@ -3,7 +3,6 @@ package application;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
@@ -38,28 +37,27 @@ public class Game extends JFrame {
 	private JRadioButtonMenuItem symbolItem;
 	private ButtonGroup groupDifficulty;
 	private ButtonGroup groupTheme;
-	
+	/* What color is brighter */
 	public int activeColor = 0;
-
-	public ArrayList<Integer> gameSequence = new ArrayList<Integer>();
-	public ArrayList<Integer> playerSequence = new ArrayList<Integer>();
 	
 	private DrawingPanel simonArea = new DrawingPanel(this);
 	private GameFunction simonFunction = new GameFunction(this, simonArea);
-	private Timer timer = new Timer(20, simonFunction);
+	/* ActionListener in GameFunction is executed each 0.02 seconds */
+	public Timer timer = new Timer(20, simonFunction);
 	
 	/* Constants to standardize all fonts */
 	public final String FONT_MENU = "Andalus";
 	public final String FONT_BODY = "Sylfaen";
 
 	public Game() {
-		/* Create the window - size = 1000x860 and start = (400, 100) */
+		/* Create the window - size = 900x900 and start = (400, 100) */
 		setBounds(400, 100, 900, 900);
 		setTitle("Simon Says");
 		/* Disable resize */
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		/* Start asking for the ActionListener */
 		timer.start();
 		
 		/* Add an action to every time that the player clicks in some area */
@@ -72,34 +70,26 @@ public class Game extends JFrame {
 				
 				/* If the player clicks in the green area */
 				if (x > 0 && x < 450 && y > 0 && y < 450) {
-					/* activeColor is set as 1 and this number is add to the playerSequence */
+					/* activeColor is set as 1 */
 					activeColor = 1;
-					playerSequence.add(1);
-					simonFunction.setTick(1);
 				}
 				
 				/* If the player clicks in the red area */
 				else if (x > 450 && x < 900 && y > 0 && y < 450) {
-					/* activeColor is set as 2 and this number is add to the playerSequence */
+					/* activeColor is set as 2 */
 					activeColor = 2;
-					playerSequence.add(2);
-					simonFunction.setTick(1);
 				}
 				
 				/* If the player clicks in the yellow area */
 				else if (x > 0 && x < 450 && y > 450 && y < 900) {
-					/* activeColor is set as 3 and this number is add to the playerSequence */
+					/* activeColor is set as 3 */
 					activeColor = 3;
-					playerSequence.add(3);
-					simonFunction.setTick(1);
 				}
 				
 				/* If the player clicks in the blue area */
 				else if (x > 450 && x < 900 && y > 450 && y < 900) {
-					/* activeColor is set as 4 and this number is add to the playerSequence */
+					/* activeColor is set as 4 */
 					activeColor = 4;
-					playerSequence.add(4);
-					simonFunction.setTick(1);
 				}
 			}
 		});
@@ -171,8 +161,4 @@ public class Game extends JFrame {
 		/* Adding the DrawingPanel into the frame */
 		add(simonArea);
     }
-	
-	public void playGame() {
-		//TODO: Method playGame;
-	}
 }
