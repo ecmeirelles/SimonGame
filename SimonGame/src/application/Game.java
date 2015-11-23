@@ -3,6 +3,7 @@ package application;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
@@ -39,6 +40,8 @@ public class Game extends JFrame {
 	private ButtonGroup groupTheme;
 	/* What color is brighter */
 	public int activeColor = 0;
+	private ArrayList<Integer> gameSequence = new ArrayList<Integer>();
+	private boolean gameOver = false;
 	
 	private DrawingPanel simonArea = new DrawingPanel(this);
 	private GameFunction simonFunction = new GameFunction(this, simonArea);
@@ -95,13 +98,13 @@ public class Game extends JFrame {
 				/* Every time the player clicks in a colorful area */
 				if (activeColor != 0) {
 					/* It compares if the area clicked is the same that one in the game sequence */
-					if (simonFunction.getGameSequence().get(simonFunction.getMovements()) == activeColor) {
+					if (gameSequence.get(simonFunction.getMovements()) == activeColor) {
 						/* If so, increases the movement to compare the next one (if applicable) */
 						simonFunction.setMovements(simonFunction.getMovements()+1);
 					}
 					/* Otherwise, the game ends */
 					else {
-						simonFunction.setGameOver(true);
+						gameOver = true;
 					}
 				}
 			} // end of mouseClicked
@@ -174,4 +177,18 @@ public class Game extends JFrame {
 		/* Adding the DrawingPanel into the frame */
 		add(simonArea);
     }
+
+	/* Get and Set methods to access and modify, respectively, the gameOver attribute */
+	public boolean getGameOver() {
+		return gameOver;
+	}
+	
+	public void setGameOver(boolean gameOver) {
+		this.gameOver = gameOver;
+	}
+	
+	/* Get method to access the gameSequence attribute */
+	public ArrayList<Integer> getGameSequence() {
+		return gameSequence;
+	}
 }

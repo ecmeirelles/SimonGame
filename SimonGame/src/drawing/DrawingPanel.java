@@ -84,6 +84,19 @@ public class DrawingPanel extends JPanel {
 		/* Create the circle and the rectangles in the middle */
 		g2.fillOval(322, 290, 250, 250);
 		g2.fillRect(422, 0, 50, 830);
-		g2.fillRect(0, 400, 895, 50);		
+		g2.fillRect(0, 400, 895, 50);
+		
+		/* Create a string in the middle to show the level of the player */
+		g2.setColor(Color.WHITE);
+		g2.setFont(new Font("Verdana", Font.BOLD, 23));
+		
+		/* If the game ends */
+		if(game.getGameOver()) {
+			g2.drawString("GAME OVER", 370, 425);
+		}
+		/* While game is running */
+		else {
+			g2.drawString("LEVEL " + game.getGameSequence().size(), 400, 425);
+		}
 	}
 }
