@@ -1,6 +1,8 @@
 package application;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -27,7 +29,6 @@ public class Game extends JFrame {
 	private JMenu difficultyMenu;
 	private JMenu themeMenu;
 	private JMenu questionMenu;
-	private JMenuItem pauseItem;
 	private JMenuItem restartItem;
 	private JMenuItem stopItem;
 	private JMenuItem howToPlayItem;
@@ -122,11 +123,24 @@ public class Game extends JFrame {
 		/* Create a menu called Game inside the menu bar */
 		gameMenu = new JMenu("GAME");
 		menuBar.add(gameMenu);
-		/* Create a menu item called Pause inside Game menu */
-		pauseItem = new JMenuItem("Pause");
-		gameMenu.add(pauseItem);
+		
 		/* Create a menu item called Restart inside Game menu */
 		restartItem = new JMenuItem("Restart");
+		/* Restart the game */
+		restartItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				/* Everything goes back to first settings */
+				gameSequence.clear();
+				gameOver = false;
+				simonFunction.setMovements(0);
+				simonFunction.setTick(0);
+				simonFunction.setDelay(2);
+				simonFunction.setGameOn(true);
+				timer.restart();
+			}
+		});
 		gameMenu.add(restartItem);
 		/* Create a menu item called Stop inside Game menu */
 		stopItem = new JMenuItem("Stop");

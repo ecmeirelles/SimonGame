@@ -24,9 +24,17 @@ public class GameFunction implements ActionListener {
 		this.area = drawingSimon;
 	}
 	
-	/* Set method to modify the tick attribute */
+	/* Set methods to modify tick, gameOn and delay attributes */
 	public void setTick(int tick) {
 		this.tick = tick;
+	}
+	
+	public void setGameOn(boolean gameOn) {
+		this.gameOn = gameOn;
+	}
+	
+	public void setDelay(int delay) {
+		this.delay = delay;
 	}
 	
 	/* Get and Set methods to access and modify, respectively, the movements attribute */
