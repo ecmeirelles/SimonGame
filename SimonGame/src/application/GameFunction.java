@@ -2,6 +2,7 @@ package application;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Random;
 
 import drawing.DrawingPanel;
@@ -13,7 +14,11 @@ public class GameFunction implements ActionListener {
 	public DrawingPanel area;
 
 	private int tick = 0;
+	private int delay = 2;
+	private boolean gameOn = true;
 	private Random randomColors = new Random();
+	
+	private ArrayList<Integer> gameSequence = new ArrayList<Integer>();
 	
 	/* Constructor to receive instances of Game and DrawingPanel */
 	public GameFunction(Game simonGame, DrawingPanel drawingSimon) {
@@ -21,11 +26,12 @@ public class GameFunction implements ActionListener {
 		this.area = drawingSimon;
 	}
 	
-	// Get and set methods to access and modify, respectively, the tick attribute
-	public int getTick() {
-		return tick;
+	/* Get method to access the gameSequence attribute */
+	public ArrayList<Integer> getGameSequence() {
+		return gameSequence;
 	}
-
+	
+	/* Set method to modify the tick attribute */
 	public void setTick(int tick) {
 		this.tick = tick;
 	}
@@ -34,16 +40,32 @@ public class GameFunction implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		tick = tick + 1;
 		
-		// Every second
+		/* Every second active color is setted as zero, to make it delay again */
 		if(tick % 20 == 0) {
-			// Set active color as zero. It means every color is darker
 			game.activeColor = 0;
-			// Set active color as a random number (from 1 to 4)
-			game.activeColor = randomColors.nextInt(4) + 1;
-			// Add the number to the gameSequence ArrayList
-			game.gameSequence.add(game.activeColor);
+			/* If delay still exists */
+			if (delay >= 0) {
+				/* Delay needs to be decreased */
+				delay--;
+			}
 		}
 		
+		/* If game is running */
+		if(gameOn) {
+			/* If delay does not exist */
+			if (delay <= 0) {
+				/* Set a random color (from 1 to 4) to be brighter */
+				game.activeColor = randomColors.nextInt(4)+ 1;
+				/* Add this number to the game sequence */
+				gameSequence.add(game.activeColor);
+				/* Wait for all necessary clicks */
+				gameOn = false;
+				
+				/* Set delay again to 2 */
+				delay = 2;
+			}
+		}
+	
 		/* The drawing is repainted to implement the new settings */
 		area.repaint();
 	}
