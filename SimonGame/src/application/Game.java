@@ -32,7 +32,7 @@ public class Game extends JFrame {
 	private JMenu questionMenu;
 	private JMenuItem restartItem;
 	private JMenuItem stopItem;
-	private JMenuItem howToPlayItem;
+	private JMenuItem aboutItem;
 	private JRadioButtonMenuItem easyItem;
 	private JRadioButtonMenuItem mediumItem;
 	private JRadioButtonMenuItem hardItem;
@@ -112,8 +112,8 @@ public class Game extends JFrame {
 						gameOver = true;
 					}
 				}
-			} // end of mouseClicked
-		}); // end of mouseListener
+			} /* end of mouseClicked */
+		}); /* end of mouseListener */
 		
 		/* Create a menu bar in the top */
 		menuBar = new JMenuBar();
@@ -207,8 +207,15 @@ public class Game extends JFrame {
 		questionMenu = new JMenu("?");
 		menuBar.add(questionMenu);
 		/* Create a menu item called How to Play inside ? menu */
-		howToPlayItem = new JMenuItem("How to Play");
-		questionMenu.add(howToPlayItem);
+		aboutItem = new JMenuItem("About");
+		aboutItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				new About().setVisible(true);
+			}
+		});
+		questionMenu.add(aboutItem);
 		
 		/* Adding the DrawingPanel into the frame */
 		add(simonArea);
