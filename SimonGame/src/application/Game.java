@@ -18,7 +18,7 @@ import javax.swing.UIManager;
 
 import drawing.DrawingPanel;
 
-/* Class that represents the main window of the game */
+/* Class that represents the main window of the game, where the game is played */
 public class Game extends JFrame {
 	/* Game attributes */
 	private static final long serialVersionUID = 1L;
@@ -28,6 +28,7 @@ public class Game extends JFrame {
 	private JMenu settingsMenu;
 	private JMenu difficultyMenu;
 	private JMenu themeMenu;
+	private JMenu soundMenu;
 	private JMenu questionMenu;
 	private JMenuItem restartItem;
 	private JMenuItem stopItem;
@@ -37,6 +38,8 @@ public class Game extends JFrame {
 	private JRadioButtonMenuItem hardItem;
 	private JRadioButtonMenuItem colorItem;
 	private JRadioButtonMenuItem symbolItem;
+	private JRadioButtonMenuItem soundOnItem;
+	private JRadioButtonMenuItem soundOffItem;
 	private ButtonGroup groupDifficulty;
 	private ButtonGroup groupTheme;
 	/* What color is brighter */
@@ -48,6 +51,7 @@ public class Game extends JFrame {
 	private GameFunction simonFunction = new GameFunction(this, simonArea);
 	/* ActionListener in GameFunction is executed each 0.02 seconds */
 	public Timer timer = new Timer(20, simonFunction);
+	public Welcome welcome;
 	
 	/* Constants to standardize all fonts */
 	public final String FONT_MENU = "Andalus";
@@ -179,6 +183,15 @@ public class Game extends JFrame {
 		/* Create a menu item called Symbols inside Theme sub-menu */
 		symbolItem = new JRadioButtonMenuItem("Symbols");
 		themeMenu.add(symbolItem);
+		/* Create a menu called Sound inside Settings menu */
+		soundMenu = new JMenu("Sound");
+		settingsMenu.add(soundMenu);
+		/* Create a menu item called On inside Sound sub-menu */
+		soundOnItem = new JRadioButtonMenuItem("On");
+		soundMenu.add(soundOnItem);
+		/* Create a menu item called Off inside Sound sub-menu */
+		soundOffItem = new JRadioButtonMenuItem("Off");
+		soundMenu.add(soundOffItem);
 		
 		/* Create a button group to allow just one selection in the radio buttons */
 		groupDifficulty = new ButtonGroup();
@@ -213,5 +226,43 @@ public class Game extends JFrame {
 	/* Get method to access the gameSequence attribute */
 	public ArrayList<Integer> getGameSequence() {
 		return gameSequence;
+	}
+	
+	/* Methods to receive information from welcome page */
+	public void setThemeChosen(int themeChosen) {
+		/* If theme selected was colors */
+		if(themeChosen == 0) {
+			colorItem.setSelected(true);
+		}
+		/* If theme selected was symbols */
+		else if(themeChosen == 1) {
+			symbolItem.setSelected(true);
+		}
+	}
+	
+	public void setDifficultyChosen(int difficultyChosen) {
+		/* If difficulty selected was easy */
+		if(difficultyChosen == 0) {
+			easyItem.setSelected(true);
+		}
+		/* If difficulty selected was medium */
+		else if(difficultyChosen == 1) {
+			mediumItem.setSelected(true);
+		}
+		/* If difficulty selected was hard */
+		else if(difficultyChosen == 2) {
+			hardItem.setSelected(true);
+		}
+	}
+	
+	public void setSoundChosen(int soundChosen) {
+		/* If sound selected was on */
+		if(soundChosen == 0) {
+			soundOnItem.setSelected(true);
+		}
+		/* If sound selected was off */
+		else if(soundChosen == 1) {
+			soundOffItem.setSelected(true);
+		}
 	}
 }

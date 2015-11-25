@@ -155,66 +155,49 @@ public class Welcome extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				/* Change to Game frame */
 				Welcome.this.setVisible(false);
-				new Game().setVisible(true);
+				Game gameFrame = new Game();
+				gameFrame.setVisible(true);
 				
 				/* If color is selected, themeChosen is zero */
 				if(themeComboBox.getSelectedIndex() == 0) {
 					themeChosen = 0;
+					gameFrame.setThemeChosen(themeChosen);
 				}
 				/* If symbol is selected, themeChosen is one */
 				else if(themeComboBox.getSelectedIndex() == 1){
 					themeChosen = 1;
+					gameFrame.setThemeChosen(themeChosen);
 				}
 				
 				/* If slider is between 10 and 15, it means that difficulty will be easy and difficultChosen is zero */
-				if(difficultySlider.getExtent() >= 10 && difficultySlider.getExtent() < 15) {
+				if(difficultySlider.getValue() >= 10 && difficultySlider.getValue() < 15) {
 					difficultyChosen = 0;
+					gameFrame.setDifficultyChosen(difficultyChosen);
 				} 
 				/* If slider is between 15 and 25, it means that difficulty will be medium and difficultChosen is one */
-				else if(difficultySlider.getExtent() >= 15 && difficultySlider.getExtent() < 25) {
+				else if(difficultySlider.getValue() >= 15 && difficultySlider.getValue() < 25) {
 					difficultyChosen = 1;
+					gameFrame.setDifficultyChosen(difficultyChosen);
 				} 
 				/* If slider is between 25 and 30, it means that difficulty will be hard and difficultChosen is two */
-				else if(difficultySlider.getExtent() >= 25 && difficultySlider.getExtent() < 30) {
+				else if(difficultySlider.getValue() >= 25 && difficultySlider.getValue() < 30) {
 					difficultyChosen = 2;
+					gameFrame.setDifficultyChosen(difficultyChosen);
 				}
 				
 				/* If on is selected, soundChosen is zero */
 				if(soundOn.isSelected()) {
 					soundChosen = 0;
+					gameFrame.setSoundChosen(soundChosen);
 				} 
 				/* If off is selected, soundChosen is one */
 				else if(soundOff.isSelected()) {
 					soundChosen = 1;
+					gameFrame.setSoundChosen(soundChosen);
 				}
 			}
 		});
 		add(startButton);
     }
-	
-	/* Getters and setters to access and modify, respectively, the attributes themeChosen, difficultyChosen and SoundChosen */
-	public int getThemeChosen() {
-		return themeChosen;
-	}
-	
-	public void setThemeChosen(int themeChosen) {
-		this.themeChosen = themeChosen;
-	}
-	
-	public int getDifficultyChosen() {
-		return difficultyChosen;
-	}
-	
-	public void setDifficultyChosen(int difficultyChosen) {
-		this.difficultyChosen = difficultyChosen;
-	}
-	
-	public int getSoundChosen() {
-		return soundChosen;
-	}
-	
-	public void setSoundChosen(int soundChosen) {
-		this.soundChosen = soundChosen;
-	}
 }
 
