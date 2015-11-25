@@ -144,6 +144,15 @@ public class Game extends JFrame {
 		gameMenu.add(restartItem);
 		/* Create a menu item called Stop inside Game menu */
 		stopItem = new JMenuItem("Stop");
+		/* Stop the game */
+		stopItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				gameOver = true;
+				simonArea.repaint();
+			}
+		});
 		gameMenu.add(stopItem);
 		
 		/* Create a menu called Settings inside menu bar */

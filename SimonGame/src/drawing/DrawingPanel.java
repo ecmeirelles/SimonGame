@@ -93,6 +93,7 @@ public class DrawingPanel extends JPanel {
 		/* If the game ends */
 		if(game.getGameOver()) {
 			g2.drawString("GAME OVER", 370, 425);
+			game.timer.stop();
 		}
 		/* While game is running */
 		else {
