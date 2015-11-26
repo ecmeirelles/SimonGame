@@ -60,7 +60,7 @@ public class Game extends JFrame {
 	public Game() {
 		/* Create the window - size = 900x900 and start = (400, 100) */
 		setBounds(400, 100, 900, 900);
-		setTitle("Simon Says");
+		setTitle("Simon | Play");
 		/* Disable resize */
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -42,13 +42,13 @@ public class Welcome extends JFrame {
 	private int soundChosen;
 	
 	/* Constants to standardize all fonts */
-	public final String FONT_MENU = "Andalus";
+	public final String FONT_TITLE = "Andalus";
 	public final String FONT_BODY = "Sylfaen";
 
 	public Welcome() {
 		/* Create the window - size = 900x900 and start = (400, 100) */
 		setBounds(400, 100, 900, 900);
-		setTitle("Simon Says");
+		setTitle("Simon | Settings");
 		/* Disable resize */
 		setResizable(false);
 		/* Set layout as null means set it as AbsolutLayout */
@@ -68,7 +68,7 @@ public class Welcome extends JFrame {
 		/* Create a label (Simon) and add it in the frame */
 		gameTitle = new JLabel("SIMON");
 		/* Insert an specific font to the component */
-		gameTitle.setFont(new Font(FONT_MENU, Font.BOLD, 30));
+		gameTitle.setFont(new Font(FONT_TITLE, Font.BOLD, 30));
 		/* Insert an specific font color to the component */
 		gameTitle.setForeground(Color.ORANGE);
 		gameTitle.setBounds(0, 215, 900, 30);
@@ -83,7 +83,7 @@ public class Welcome extends JFrame {
 		
 		/* Create a label (Theme) and add it in the frame */
 		gameThemeLabel = new JLabel("THEME:");
-		gameThemeLabel.setFont(new Font(FONT_MENU, Font.BOLD, 18));
+		gameThemeLabel.setFont(new Font(FONT_TITLE, Font.BOLD, 18));
 		gameThemeLabel.setForeground(Color.BLUE);
 		gameThemeLabel.setBounds(270, 400, 100, 30);
 		add(gameThemeLabel);
@@ -96,7 +96,7 @@ public class Welcome extends JFrame {
 		
 		/* Create a label (Difficulty) and add it in the frame */
 		gameDifficultyLabel = new JLabel("DIFFICULTY:");
-		gameDifficultyLabel.setFont(new Font(FONT_MENU, Font.BOLD, 18));
+		gameDifficultyLabel.setFont(new Font(FONT_TITLE, Font.BOLD, 18));
 		gameDifficultyLabel.setForeground(Color.BLUE);
 		gameDifficultyLabel.setBounds(270, 500, 150, 30);
 		add(gameDifficultyLabel);
@@ -121,7 +121,7 @@ public class Welcome extends JFrame {
 		
 		/* Create a label (Sound) and add it in the frame */
 		soundLabel = new JLabel("SOUND:");
-		soundLabel.setFont(new Font(FONT_MENU, Font.BOLD, 18));
+		soundLabel.setFont(new Font(FONT_TITLE, Font.BOLD, 18));
 		soundLabel.setForeground(Color.BLUE);
 		soundLabel.setBounds(270, 600, 100, 30);
 		add(soundLabel);
