@@ -44,6 +44,8 @@ public class Game extends JFrame {
 	private ButtonGroup groupTheme;
 	/* What color is brighter */
 	public int activeColor = 0;
+	private int bestScore;
+	private int level = 0;
 	private ArrayList<Integer> gameSequence = new ArrayList<Integer>();
 	private boolean gameOver = false;
 	
@@ -138,6 +140,7 @@ public class Game extends JFrame {
 				/* Everything goes back to first settings */
 				gameSequence.clear();
 				gameOver = false;
+				level = 0;
 				simonFunction.setMovements(0);
 				simonFunction.setTick(0);
 				simonFunction.setDelay(2);
@@ -233,6 +236,24 @@ public class Game extends JFrame {
 	/* Get method to access the gameSequence attribute */
 	public ArrayList<Integer> getGameSequence() {
 		return gameSequence;
+	}
+	
+	/* Get and Set methods to access and modify, respectively, the bestScore attribute */
+	public int getBestScore() {
+		return bestScore;
+	}
+	
+	public void setBestScore(int bestScore) {
+		this.bestScore = bestScore;
+	}
+	
+	/* Get and Set methods to access and modify, respectively, the attribute level */
+	public int getLevel() {
+		return level;
+	}
+	
+	public void setLevel(int level) {
+		this.level = level;
 	}
 	
 	/* Methods to receive information from welcome page */

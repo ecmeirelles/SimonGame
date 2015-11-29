@@ -89,15 +89,16 @@ public class DrawingPanel extends JPanel {
 		/* Create a string in the middle to show the level of the player */
 		g2.setColor(Color.WHITE);
 		g2.setFont(new Font("Verdana", Font.BOLD, 23));
+		g2.drawString("Best Score: " + game.getBestScore(), 365, 450);
 		
 		/* If the game ends */
 		if(game.getGameOver()) {
-			g2.drawString("GAME OVER", 370, 425);
+			g2.drawString("GAME OVER", 370, 415);
 			game.timer.stop();
 		}
 		/* While game is running */
 		else {
-			g2.drawString("LEVEL " + game.getGameSequence().size(), 400, 425);
+			g2.drawString("LEVEL " + game.getLevel(), 400, 415);
 		}
 	}
 }

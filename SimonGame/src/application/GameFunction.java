@@ -70,6 +70,7 @@ public class GameFunction implements ActionListener {
 					game.activeColor = randomColors.nextInt(4)+ 1;
 					/* Add this number to the game sequence */
 					game.getGameSequence().add(game.activeColor);
+					game.setLevel(game.getLevel() + 1);
 					/* Set movements as zero */
 					movements = 0;
 					/* Wait for all necessary clicks */
@@ -92,6 +93,10 @@ public class GameFunction implements ActionListener {
 			gameOn = true;
 			movements = 0;
 			delay = 2;
+		}
+		
+		if (game.getLevel() >= game.getBestScore()) {
+			game.setBestScore(game.getLevel());
 		}
 	
 		/* The drawing is repainted to implement the new settings */
