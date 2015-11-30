@@ -5,6 +5,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
@@ -44,8 +49,8 @@ public class Game extends JFrame {
 	private ButtonGroup groupTheme;
 	/* What color is brighter */
 	public int activeColor = 0;
-	private int bestScore;
 	private int level = 0;
+	private static int bestScore = 0;
 	private ArrayList<Integer> gameSequence = new ArrayList<Integer>();
 	private boolean gameOver = false;
 	
@@ -58,7 +63,7 @@ public class Game extends JFrame {
 	/* Constants to standardize all fonts */
 	public final String FONT_MENU = "Andalus";
 	public final String FONT_BODY = "Sylfaen";
-
+	
 	public Game() {
 		/* Create the window - size = 900x900 and start = (400, 100) */
 		setBounds(400, 100, 900, 900);
@@ -238,13 +243,51 @@ public class Game extends JFrame {
 		return gameSequence;
 	}
 	
-	/* Get and Set methods to access and modify, respectively, the bestScore attribute */
+	/* Get and Set methods to access and modify, respectively, the bestScore attribute.
+	 * In this case, I/O from file has been used to do this. */
 	public int getBestScore() {
+		/* Initialize readers with null */
+		FileReader fileReader = null;
+		BufferedReader bufferedReader = null;
+		
+		try {
+			/* Read from bestScore.dat file. 
+			 * This format was chosen because in this way the player cannot modify the content */
+			fileReader = new FileReader("bestScore.dat");
+			bufferedReader = new BufferedReader(fileReader);
+			
+			/* bestScore is equal to the number read from the file */
+			bestScore = Integer.parseInt(bufferedReader.readLine());
+			
+		}
+		
+		catch(IOException ex){
+			  ex.printStackTrace();
+		}
+		
 		return bestScore;
 	}
 	
 	public void setBestScore(int bestScore) {
-		this.bestScore = bestScore;
+		/* Initialize writers with null */
+		FileWriter fileWriter = null;
+		BufferedWriter bufferedWriter = null;
+		
+		try {
+			/* Write in bestScore.dat file. 
+			 * This format was chosen because in this way the player cannot modify the content */
+			fileWriter = new FileWriter("bestScore.dat");
+			bufferedWriter = new BufferedWriter(fileWriter);
+			
+			/* Update bestScore writing the new number in the file */
+			bufferedWriter.write(Integer.toString(bestScore));
+			/* It flushes the output stream and forces any buffered output bytes to be written out */
+			bufferedWriter.flush();  
+		}
+		
+		catch(IOException ex){
+			ex.printStackTrace();
+		}
 	}
 	
 	/* Get and Set methods to access and modify, respectively, the attribute level */
