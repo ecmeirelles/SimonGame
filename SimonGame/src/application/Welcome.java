@@ -156,7 +156,6 @@ public class Welcome extends JFrame {
 				/* Change to Game frame */
 				Welcome.this.setVisible(false);
 				Game gameFrame = new Game();
-				gameFrame.setVisible(true);
 				
 				/* If color is selected, themeChosen is zero */
 				if(themeComboBox.getSelectedIndex() == 0) {
@@ -180,7 +179,7 @@ public class Welcome extends JFrame {
 					gameFrame.setDifficultyChosen(difficultyChosen);
 				} 
 				/* If slider is between 25 and 30, it means that difficulty will be hard and difficultChosen is two */
-				else if(difficultySlider.getValue() >= 25 && difficultySlider.getValue() < 30) {
+				else if(difficultySlider.getValue() >= 25 && difficultySlider.getValue() <= 30) {
 					difficultyChosen = 2;
 					gameFrame.setDifficultyChosen(difficultyChosen);
 				}
@@ -195,6 +194,8 @@ public class Welcome extends JFrame {
 					soundChosen = 1;
 					gameFrame.setSoundChosen(soundChosen);
 				}
+				
+				gameFrame.setVisible(true);
 			}
 		});
 		add(startButton);

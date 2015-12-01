@@ -22,6 +22,8 @@ import javax.swing.Timer;
 import javax.swing.UIManager;
 
 import drawing.DrawingPanel;
+import functions.DifficultyFunctions;
+import functions.GameFunction;
 
 /* Class that represents the main window of the game, where the game is played */
 public class Game extends JFrame {
@@ -57,6 +59,7 @@ public class Game extends JFrame {
 	
 	private DrawingPanel simonArea = new DrawingPanel(this);
 	private GameFunction simonFunction = new GameFunction(this, simonArea);
+	private DifficultyFunctions simonDifficulties = new DifficultyFunctions(this);
 	/* ActionListener in GameFunction is executed each 0.02 seconds */
 	public Timer timer = new Timer(20, simonFunction);
 	public Welcome welcome;
@@ -143,15 +146,7 @@ public class Game extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/* Everything goes back to first settings */
-				gameSequence.clear();
-				gameOver = false;
-				level = 0;
-				simonFunction.setMovements(0);
-				simonFunction.setTick(0);
-				simonFunction.setDelay(2);
-				simonFunction.setGameOn(true);
-				timer.restart();
+				restartGame();
 			}
 		});
 		gameMenu.add(restartItem);
@@ -188,12 +183,15 @@ public class Game extends JFrame {
 		settingsMenu.add(difficultyMenu);
 		/* Create a menu item called Easy inside Difficulty sub-menu */
 		easyItem = new JRadioButtonMenuItem("Easy");
+		easyItem.addActionListener(simonDifficulties);
 		difficultyMenu.add(easyItem);
 		/* Create a menu item called Medium inside Difficulty sub-menu */
 		mediumItem = new JRadioButtonMenuItem("Medium");
+		mediumItem.addActionListener(simonDifficulties);
 		difficultyMenu.add(mediumItem);
 		/* Create a menu item called Hard inside Difficulty sub-menu */
 		hardItem = new JRadioButtonMenuItem("Hard");
+		hardItem.addActionListener(simonDifficulties);
 		difficultyMenu.add(hardItem);
 		/* Create a menu called Theme inside Settings menu */
 		themeMenu = new JMenu("Theme");
@@ -312,6 +310,32 @@ public class Game extends JFrame {
 		this.level = level;
 	}
 	
+	/* Get method to access all the difficulty items */
+	public JRadioButtonMenuItem getEasyDifficulty() {
+		return easyItem;
+	}
+	
+	public JRadioButtonMenuItem getMediumDifficulty() {
+		return mediumItem;
+	}
+	
+	public JRadioButtonMenuItem getHardDifficulty() {
+		return hardItem;
+	}
+	
+	/* Method to restart the game */
+	public void restartGame() {
+		/* Everything goes back to first settings */
+		gameSequence.clear();
+		gameOver = false;
+		level = 0;
+		simonFunction.setMovements(0);
+		simonFunction.setTick(0);
+		simonFunction.setDelay(2);
+		simonFunction.setGameOn(true);
+		timer.restart();
+	}
+	
 	/* Methods to receive information from welcome page */
 	public void setThemeChosen(int themeChosen) {
 		/* If theme selected was colors */
@@ -332,10 +356,18 @@ public class Game extends JFrame {
 		/* If difficulty selected was medium */
 		else if(difficultyChosen == 1) {
 			mediumItem.setSelected(true);
+			/* Change timer to 0.01 seconds */
+			timer.setDelay(10);
+			/* Restart timer */
+			timer.restart();
 		}
 		/* If difficulty selected was hard */
 		else if(difficultyChosen == 2) {
 			hardItem.setSelected(true);
+			/* Change timer to 0.005 seconds */
+			timer.setDelay(5);
+			/* Restart timer */
+			timer.restart();
 		}
 	}
 	

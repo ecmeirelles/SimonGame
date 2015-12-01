@@ -1,9 +1,10 @@
-package application;
+package functions;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
 
+import application.Game;
 import drawing.DrawingPanel;
 
 /* Class that represents the logic of the game */
