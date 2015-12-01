@@ -38,6 +38,7 @@ public class Game extends JFrame {
 	private JMenuItem restartItem;
 	private JMenuItem stopItem;
 	private JMenuItem aboutItem;
+	private JMenuItem cleanBestScoreItem;
 	private JRadioButtonMenuItem easyItem;
 	private JRadioButtonMenuItem mediumItem;
 	private JRadioButtonMenuItem hardItem;
@@ -166,6 +167,18 @@ public class Game extends JFrame {
 			}
 		});
 		gameMenu.add(stopItem);
+		/* Create a menu item called Clean Best Score inside Game menu */
+		cleanBestScoreItem = new JMenuItem("Clean Best Score");
+		/* Set best score as zero again */
+		cleanBestScoreItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				setBestScore(0);
+				simonArea.repaint();
+			}
+		});
+		gameMenu.add(cleanBestScoreItem);
 		
 		/* Create a menu called Settings inside menu bar */
 		settingsMenu = new JMenu("SETTINGS");
