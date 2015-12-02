@@ -23,6 +23,7 @@ import javax.swing.Timer;
 import javax.swing.UIManager;
 
 import drawing.DrawingPanel;
+import functions.BeepFunction;
 import functions.DifficultyFunctions;
 import functions.GameFunction;
 
@@ -58,6 +59,7 @@ public class Game extends JFrame {
 	private ArrayList<Integer> gameSequence = new ArrayList<Integer>();
 	private boolean gameOver = false;
 	
+	private BeepFunction beep = new BeepFunction();
 	private DrawingPanel simonArea = new DrawingPanel(this);
 	private GameFunction simonFunction = new GameFunction(this, simonArea);
 	private DifficultyFunctions simonDifficulties = new DifficultyFunctions(this);
@@ -92,24 +94,28 @@ public class Game extends JFrame {
 				if (x > 0 && x < 450 && y > 0 && y < 450) {
 					/* activeColor is set as 1 */
 					activeColor = 1;
+					beep.getBeep(activeColor);
 				}
 				
 				/* If the player clicks in the red area */
 				else if (x > 450 && x < 900 && y > 0 && y < 450) {
 					/* activeColor is set as 2 */
 					activeColor = 2;
+					beep.getBeep(activeColor);
 				}
 				
 				/* If the player clicks in the yellow area */
 				else if (x > 0 && x < 450 && y > 450 && y < 900) {
 					/* activeColor is set as 3 */
 					activeColor = 3;
+					beep.getBeep(activeColor);
 				}
 				
 				/* If the player clicks in the blue area */
 				else if (x > 450 && x < 900 && y > 450 && y < 900) {
 					/* activeColor is set as 4 */
 					activeColor = 4;
+					beep.getBeep(activeColor);
 				}
 				
 				/* Every time the player clicks in a colorful area */
