@@ -65,17 +65,27 @@ public class GameFunction implements ActionListener {
 		if(gameOn) {
 			/* If delay does not exist */
 			if (delay <= 0) {
-				/* If the number of movements is equal to the size of the current sequence */
-				if (movements == game.getGameSequence().size()) {
-					/* Set a random color (from 1 to 4) to be brighter */
-					game.activeColor = randomColors.nextInt(4)+ 1;
-					/* Add this number to the game sequence */
-					game.getGameSequence().add(game.activeColor);
-					game.setLevel(game.getLevel() + 1);
-					/* Set movements as zero */
-					movements = 0;
-					/* Wait for all necessary clicks */
-					gameOn = false;
+				/* If the number of movements is equal to the size of the current sequence 
+				 * Or the size is equal to 1 (so the game starts with 2 colors) */
+				if (movements == game.getGameSequence().size() || game.getGameSequence().size() == 1) {
+					if(game.getGameSequence().size() == 0) {
+						/* Set a random color (from 1 to 4) to be brighter */
+						game.activeColor = randomColors.nextInt(4)+ 1;
+						/* Add this number to the game sequence */
+						game.getGameSequence().add(game.activeColor);
+					}
+					
+					else {
+						/* Set a random color (from 1 to 4) to be brighter */
+						game.activeColor = randomColors.nextInt(4)+ 1;
+						/* Add this number to the game sequence */
+						game.getGameSequence().add(game.activeColor);
+						game.setLevel(game.getLevel() + 1);
+						/* Set movements as zero */
+						movements = 0;
+						/* Wait for all necessary clicks */
+						gameOn = false;
+					}
 				}
 				/* If the number of clicks is fewer than the size of the current sequence*/
 				else {

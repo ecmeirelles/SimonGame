@@ -58,7 +58,7 @@ public class Welcome extends JFrame {
 		/* Create an icon and add it in the frame */
 		gameIcon = new JLabel("");
 		/* Location of the image */
-		gameIcon.setIcon(new ImageIcon("src\\kidsPlaying.png"));
+		gameIcon.setIcon(new ImageIcon("src\\resources\\kidsPlaying.png"));
 		/* When layout is set as null, it is needed to specify the exact position of the component */
 		gameIcon.setBounds(0, 90, 900, 92);
 		/* Component being horizontally centralized */
