@@ -64,8 +64,8 @@ public class Game extends JFrame {
 	private DrawingPanel simonArea = new DrawingPanel(this);
 	private GameFunction simonFunction = new GameFunction(this, simonArea);
 	private DifficultyFunctions simonDifficulties = new DifficultyFunctions(this);
-	/* ActionListener in GameFunction is executed each 0.02 seconds */
-	public Timer timer = new Timer(20, simonFunction);
+	/* ActionListener in GameFunction is executed each 0.03 seconds */
+	public Timer timer = new Timer(30, simonFunction);
 	public Welcome welcome;
 	
 	/* Constants to standardize all fonts */
@@ -401,16 +401,16 @@ public class Game extends JFrame {
 		/* If difficulty selected was medium */
 		else if(difficultyChosen == 1) {
 			mediumItem.setSelected(true);
-			/* Change timer to 0.01 seconds */
-			timer.setDelay(10);
+			/* Change timer to 0.02 seconds */
+			timer.setDelay(20);
 			/* Restart timer */
 			timer.restart();
 		}
 		/* If difficulty selected was hard */
 		else if(difficultyChosen == 2) {
 			hardItem.setSelected(true);
-			/* Change timer to 0.005 seconds */
-			timer.setDelay(5);
+			/* Change timer to 0.01 seconds */
+			timer.setDelay(10);
 			/* Restart timer */
 			timer.restart();
 		}

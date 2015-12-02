@@ -22,22 +22,22 @@ public class DifficultyFunctions implements ActionListener {
 		
 		/* If difficulty chosen (by the menu) is easy */
 		if(game.getEasyDifficulty().isSelected()) {
-			/* Change timer to 0.02 seconds */
-			game.timer.setDelay(20);
+			/* Change timer to 0.03 seconds */
+			game.timer.setDelay(30);
 			/* Restart timer */
 			game.timer.restart();
 		}
 		/* If difficulty chosen (by the menu) is medium */
 		else if(game.getMediumDifficulty().isSelected()) {
-			/* Change timer to 0.01 seconds */
-			game.timer.setDelay(10);
+			/* Change timer to 0.02 seconds */
+			game.timer.setDelay(20);
 			/* Restart timer */
 			game.timer.restart();
 		}
 		/* If difficulty chosen (by the menu) is hard */
 		else if(game.getHardDifficulty().isSelected()) {
-			/* Change timer to 0.005 seconds */
-			game.timer.setDelay(5);
+			/* Change timer to 0.01 seconds */
+			game.timer.setDelay(10);
 			/* Restart timer */
 			game.timer.restart();
 		}
