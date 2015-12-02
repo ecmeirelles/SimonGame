@@ -94,6 +94,7 @@ public class Game extends JFrame {
 				if (x > 0 && x < 450 && y > 0 && y < 450) {
 					/* activeColor is set as 1 */
 					activeColor = 1;
+					/* Set the specific beep for this color */
 					beep.getBeep(activeColor);
 				}
 				
@@ -101,6 +102,7 @@ public class Game extends JFrame {
 				else if (x > 450 && x < 900 && y > 0 && y < 450) {
 					/* activeColor is set as 2 */
 					activeColor = 2;
+					/* Set the specific beep for this color */
 					beep.getBeep(activeColor);
 				}
 				
@@ -108,6 +110,7 @@ public class Game extends JFrame {
 				else if (x > 0 && x < 450 && y > 450 && y < 900) {
 					/* activeColor is set as 3 */
 					activeColor = 3;
+					/* Set the specific beep for this color */
 					beep.getBeep(activeColor);
 				}
 				
@@ -115,6 +118,7 @@ public class Game extends JFrame {
 				else if (x > 450 && x < 900 && y > 450 && y < 900) {
 					/* activeColor is set as 4 */
 					activeColor = 4;
+					/* Set the specific beep for this color */
 					beep.getBeep(activeColor);
 				}
 				
