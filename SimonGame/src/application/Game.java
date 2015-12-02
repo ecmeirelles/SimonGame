@@ -52,6 +52,7 @@ public class Game extends JFrame {
 	private JRadioButtonMenuItem soundOffItem;
 	private ButtonGroup groupDifficulty;
 	private ButtonGroup groupTheme;
+	private ButtonGroup groupSound;
 	/* What color is brighter */
 	public int activeColor = 0;
 	private int level = 0;
@@ -94,32 +95,48 @@ public class Game extends JFrame {
 				if (x > 0 && x < 450 && y > 0 && y < 450) {
 					/* activeColor is set as 1 */
 					activeColor = 1;
-					/* Set the specific beep for this color */
-					beep.getBeep(activeColor);
+					
+					/* If sound ON is selected */
+					if(soundOnItem.isSelected()) {
+						/* Set the specific beep for this color */
+						beep.getBeep(activeColor);
+					}
 				}
 				
 				/* If the player clicks in the red area */
 				else if (x > 450 && x < 900 && y > 0 && y < 450) {
 					/* activeColor is set as 2 */
 					activeColor = 2;
-					/* Set the specific beep for this color */
-					beep.getBeep(activeColor);
+					
+					/* If sound ON is selected */
+					if(soundOnItem.isSelected()) {
+						/* Set the specific beep for this color */
+						beep.getBeep(activeColor);
+					}
 				}
 				
 				/* If the player clicks in the yellow area */
 				else if (x > 0 && x < 450 && y > 450 && y < 900) {
 					/* activeColor is set as 3 */
 					activeColor = 3;
-					/* Set the specific beep for this color */
-					beep.getBeep(activeColor);
+
+					/* If sound ON is selected */
+					if(soundOnItem.isSelected()) {
+						/* Set the specific beep for this color */
+						beep.getBeep(activeColor);
+					}
 				}
 				
 				/* If the player clicks in the blue area */
 				else if (x > 450 && x < 900 && y > 450 && y < 900) {
 					/* activeColor is set as 4 */
 					activeColor = 4;
-					/* Set the specific beep for this color */
-					beep.getBeep(activeColor);
+
+					/* If sound ON is selected */
+					if(soundOnItem.isSelected()) {
+						/* Set the specific beep for this color */
+						beep.getBeep(activeColor);
+					}
 				}
 				
 				/* Every time the player clicks in a colorful area */
@@ -241,6 +258,10 @@ public class Game extends JFrame {
 		groupTheme.add(colorItem);
 		groupTheme.add(symbolItem);
 		
+		groupSound = new ButtonGroup();
+		groupSound.add(soundOnItem);
+		groupSound.add(soundOffItem);
+		
 		/* Create a menu called ? inside menu bar */
 		questionMenu = new JMenu("?");
 		menuBar.add(questionMenu);
@@ -340,6 +361,11 @@ public class Game extends JFrame {
 	
 	public JRadioButtonMenuItem getHardDifficulty() {
 		return hardItem;
+	}
+	
+	/* Get methods to access soundOnItem */
+	public JMenuItem getSoundOn() {
+		return soundOnItem;
 	}
 	
 	/* Method to restart the game */

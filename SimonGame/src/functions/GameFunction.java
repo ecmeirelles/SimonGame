@@ -72,8 +72,13 @@ public class GameFunction implements ActionListener {
 					if(game.getGameSequence().size() == 0) {
 						/* Set a random color (from 1 to 4) to be brighter */
 						game.activeColor = randomColors.nextInt(4)+ 1;
-						/* Set the specific beep for this color */
-						beep.getBeep(game.activeColor);
+						
+						/* If sound ON is selected */
+						if(game.getSoundOn().isSelected()) {
+							/* Set the specific beep for this color */
+							beep.getBeep(game.activeColor);
+						}
+						
 						/* Add this number to the game sequence */
 						game.getGameSequence().add(game.activeColor);
 					}
@@ -81,8 +86,13 @@ public class GameFunction implements ActionListener {
 					else {
 						/* Set a random color (from 1 to 4) to be brighter */
 						game.activeColor = randomColors.nextInt(4)+ 1;
-						/* Set the specific beep for this color */
-						beep.getBeep(game.activeColor);
+
+						/* If sound ON is selected */
+						if(game.getSoundOn().isSelected()) {
+							/* Set the specific beep for this color */
+							beep.getBeep(game.activeColor);
+						}
+						
 						/* Add this number to the game sequence */
 						game.getGameSequence().add(game.activeColor);
 						game.setLevel(game.getLevel() + 1);
@@ -96,8 +106,13 @@ public class GameFunction implements ActionListener {
 				else {
 					/* Set color to be brighter again. It means, repeat the previous sequence */
 					game.activeColor = game.getGameSequence().get(movements);
-					/* Set the specific beep for this color */
-					beep.getBeep(game.activeColor);
+
+					/* If sound ON is selected */
+					if(game.getSoundOn().isSelected()) {
+						/* Set the specific beep for this color */
+						beep.getBeep(game.activeColor);
+					}
+					
 					movements++;
 				}
 				/* Set delay again to 2 */
