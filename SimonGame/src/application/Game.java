@@ -17,6 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButtonMenuItem;
 import javax.swing.Timer;
 import javax.swing.UIManager;
@@ -157,8 +158,12 @@ public class Game extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				gameOver = true;
-				simonArea.repaint();
+				int optionPane = JOptionPane.showConfirmDialog(null, "Stop means Game Over. Do you really want that?", "Simon | Stop", JOptionPane.YES_NO_OPTION);
+				/* If the players confirms */
+				if(optionPane == 0) {
+					gameOver = true;
+					simonArea.repaint();
+				}
 			}
 		});
 		gameMenu.add(stopItem);
@@ -169,8 +174,12 @@ public class Game extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				setBestScore(0);
-				simonArea.repaint();
+				int optionPane = JOptionPane.showConfirmDialog(null, "Do you really want to clean your best score?", "Simon | Best Score", JOptionPane.YES_NO_OPTION);
+				/* If the players confirms */
+				if(optionPane == 0) {
+					setBestScore(0);
+					simonArea.repaint();
+				}
 			}
 		});
 		gameMenu.add(cleanBestScoreItem);
