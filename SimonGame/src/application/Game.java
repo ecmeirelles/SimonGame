@@ -46,8 +46,8 @@ public class Game extends JFrame {
 	private JRadioButtonMenuItem easyItem;
 	private JRadioButtonMenuItem mediumItem;
 	private JRadioButtonMenuItem hardItem;
-	private JRadioButtonMenuItem colorItem;
-	private JRadioButtonMenuItem symbolItem;
+	private JRadioButtonMenuItem grbyItem;
+	private JRadioButtonMenuItem mcogItem;
 	private JRadioButtonMenuItem soundOnItem;
 	private JRadioButtonMenuItem soundOffItem;
 	private ButtonGroup groupDifficulty;
@@ -232,12 +232,12 @@ public class Game extends JFrame {
 		/* Create a menu called Theme inside Settings menu */
 		themeMenu = new JMenu("Theme");
 		settingsMenu.add(themeMenu);
-		/* Create a menu item called Colors inside Theme sub-menu */
-		colorItem = new JRadioButtonMenuItem("Colors");
-		themeMenu.add(colorItem);
-		/* Create a menu item called Symbols inside Theme sub-menu */
-		symbolItem = new JRadioButtonMenuItem("Symbols");
-		themeMenu.add(symbolItem);
+		/* Create a menu item called Green/Red/Blue/Yellow inside Theme sub-menu */
+		grbyItem = new JRadioButtonMenuItem("Green/Red/Blue/Yellow");
+		themeMenu.add(grbyItem);
+		/* Create a menu item called Magenta/Cyan/Orange/Gray inside Theme sub-menu */
+		mcogItem = new JRadioButtonMenuItem("Magenta/Cyan/Orange/Gray");
+		themeMenu.add(mcogItem);
 		/* Create a menu called Sound inside Settings menu */
 		soundMenu = new JMenu("Sound");
 		settingsMenu.add(soundMenu);
@@ -255,8 +255,8 @@ public class Game extends JFrame {
 		groupDifficulty.add(hardItem);
 		
 		groupTheme = new ButtonGroup();
-		groupTheme.add(colorItem);
-		groupTheme.add(symbolItem);
+		groupTheme.add(grbyItem);
+		groupTheme.add(mcogItem);
 		
 		groupSound = new ButtonGroup();
 		groupSound.add(soundOnItem);
@@ -368,6 +368,21 @@ public class Game extends JFrame {
 		return soundOnItem;
 	}
 	
+	/* Get method to access themeChosen */
+	public int getThemeChosen() {
+		int theme = 0;
+		
+		if(grbyItem.isSelected()) {
+			theme = 0;
+		}
+		
+		else if(mcogItem.isSelected()) {
+			theme = 1;
+		}
+		
+		return theme;
+	}
+	
 	/* Method to restart the game */
 	public void restartGame() {
 		/* Everything goes back to first settings */
@@ -385,11 +400,11 @@ public class Game extends JFrame {
 	public void setThemeChosen(int themeChosen) {
 		/* If theme selected was colors */
 		if(themeChosen == 0) {
-			colorItem.setSelected(true);
+			grbyItem.setSelected(true);
 		}
 		/* If theme selected was symbols */
 		else if(themeChosen == 1) {
-			symbolItem.setSelected(true);
+			mcogItem.setSelected(true);
 		}
 	}
 	

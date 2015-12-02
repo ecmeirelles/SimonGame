@@ -27,46 +27,110 @@ public class DrawingPanel extends JPanel {
 		super.paintComponent(g2);
 		
 		
-		/* If the game's attribute activeColor is equal to 1, then color is set as green */
+		/* If the game's attribute activeColor is equal to 1 */
 		if (game.activeColor == 1) {
-			g2.setColor(Color.GREEN);
+			/* If theme chosen is Green/Red/Blue/Yellow */
+			if(game.getThemeChosen() == 0) {
+				/* Set color as green */
+				g2.setColor(Color.GREEN);
+			}
+			/* If theme chosen is Pink/Purple/Orange/Gray */
+			else if(game.getThemeChosen() == 1) {
+				/* Set color as magenta */
+				g2.setColor(Color.MAGENTA);
+			}
+			
 		}
-		/* Otherwise, it is set as green, but darker */
+		/* Otherwise, the colors are the same, but darker */
 		else {
-			g2.setColor(Color.GREEN.darker());
+			if(game.getThemeChosen() == 0) {
+				g2.setColor(Color.GREEN.darker());
+			}
+			
+			else if(game.getThemeChosen() == 1) {
+				g2.setColor(Color.MAGENTA.darker());
+			}
 		}
 		/* Create a rectangle sized 1/4 of the screen */
 		g2.fillRect(0, 0, 450, 450);
 		
-		/* If the game's attribute activeColor is equal to 2, then color is set as red */
+		/* If the game's attribute activeColor is equal to 2 */
 		if (game.activeColor == 2) {
-			g2.setColor(Color.RED);
+			/* If theme chosen is Green/Red/Blue/Yellow */
+			if(game.getThemeChosen() == 0) {
+				/* Set color as red */
+				g2.setColor(Color.RED);
+			}
+			/* If theme chosen is Magenta/Cyan/Orange/Gray */
+			else if(game.getThemeChosen() == 1) {
+				/* Set color as cyan */
+				g2.setColor(Color.CYAN);
+			}
+			
 		}
-		/* Otherwise, it is set as red, but darker */
+		/* Otherwise, the colors are the same, but darker */
 		else {
-			g2.setColor(Color.RED.darker());
+			if(game.getThemeChosen() == 0) {
+				g2.setColor(Color.RED.darker());
+			}
+			
+			else if(game.getThemeChosen() == 1) {
+				g2.setColor(Color.CYAN.darker());
+			}
 		}
 		/* Create a rectangle sized 1/4 of the screen */
 		g2.fillRect(450, 0, 450, 450);
 		
-		/* If the game's attribute activeColor is equal to 3, then color is set as yellow */
+		/* If the game's attribute activeColor is equal to 3 */
 		if (game.activeColor == 3) {
-			g2.setColor(Color.YELLOW);
+			/* If theme chosen is Green/Red/Blue/Yellow */
+			if(game.getThemeChosen() == 0) {
+				/* Set color as yellow */
+				g2.setColor(Color.YELLOW);
+			}
+			/* If theme chosen is Magenta/Cyan/Orange/Gray */
+			else if(game.getThemeChosen() == 1) {
+				/* Set color as orange */
+				g2.setColor(Color.ORANGE);
+			}
+			
 		}
-		/* Otherwise, it is set as yellow, but darker */
+		/* Otherwise, the colors are the same, but darker */
 		else {
-			g2.setColor(Color.YELLOW.darker());
+			if(game.getThemeChosen() == 0) {
+				g2.setColor(Color.YELLOW.darker());
+			}
+			
+			else if(game.getThemeChosen() == 1) {
+				g2.setColor(Color.ORANGE.darker());
+			}
 		}
 		/* Create a rectangle sized 1/4 of the screen */
 		g2.fillRect(0, 450, 450, 450);
 		
-		/* If the game's attribute activeColor is equal to 4, then color is set as blue */
+		/* If the game's attribute activeColor is equal to 4 */
 		if (game.activeColor == 4) {
-			g2.setColor(Color.BLUE);
+			/* If theme chosen is Green/Red/Blue/Yellow */
+			if(game.getThemeChosen() == 0) {
+				/* Set color as blue */
+				g2.setColor(Color.BLUE);
+			}
+			/* If theme chosen is Magenta/Cyan/Orange/Gray */
+			else if(game.getThemeChosen() == 1) {
+				/* Set color as gray */
+				g2.setColor(Color.GRAY);
+			}
+			
 		}
-		/* Otherwise, it is set as blue, but darker */
+		/* Otherwise, the colors are the same, but darker */
 		else {
-			g2.setColor(Color.BLUE.darker());
+			if(game.getThemeChosen() == 0) {
+				g2.setColor(Color.BLUE.darker());
+			}
+			
+			else if(game.getThemeChosen() == 1) {
+				g2.setColor(Color.GRAY.darker());
+			}
 		}
 		/* Create a rectangle sized 1/4 of the screen */
 		g2.fillRect(450, 450, 450, 450);

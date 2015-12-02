@@ -36,7 +36,7 @@ public class Welcome extends JFrame {
 	private ButtonGroup soundGroup;
 	private JButton startButton;
 	
-	private String themes[] = {"Colors", "Symbols"};
+	private String themes[] = {"Green/Red/Blue/Yellow", "Magenta/Cyan/Orange/Gray"};
 	private int themeChosen;
 	private int difficultyChosen;
 	private int soundChosen;
@@ -157,12 +157,12 @@ public class Welcome extends JFrame {
 				Welcome.this.setVisible(false);
 				Game gameFrame = new Game();
 				
-				/* If color is selected, themeChosen is zero */
+				/* If Green/Red/Blue/Yellow is selected, themeChosen is zero */
 				if(themeComboBox.getSelectedIndex() == 0) {
 					themeChosen = 0;
 					gameFrame.setThemeChosen(themeChosen);
 				}
-				/* If symbol is selected, themeChosen is one */
+				/* If Magenta/Cyan/Orange/Gray is selected, themeChosen is one */
 				else if(themeComboBox.getSelectedIndex() == 1){
 					themeChosen = 1;
 					gameFrame.setThemeChosen(themeChosen);
