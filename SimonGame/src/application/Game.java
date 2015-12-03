@@ -350,7 +350,11 @@ public class Game extends JFrame {
 		this.level = level;
 	}
 	
-	/* Get method to access all the difficulty items */
+	/* Get method to access all the difficulty menu elements */
+	public JMenu getDifficultyMenu() {
+		return difficultyMenu;
+	}
+	
 	public JRadioButtonMenuItem getEasyDifficulty() {
 		return easyItem;
 	}
@@ -363,9 +367,56 @@ public class Game extends JFrame {
 		return hardItem;
 	}
 	
-	/* Get methods to access soundOnItem */
+	/* Get methods to access sounds menu elements */
+	public JMenu getSoundMenu() {
+		return soundMenu;
+	}
+	
 	public JMenuItem getSoundOn() {
 		return soundOnItem;
+	}
+	
+	public JMenuItem getSoundOff() {
+		return soundOffItem;
+	}
+	
+	/* Get methods to access theme menu elements */
+	public JMenu getThemeMenu() {
+		return themeMenu;
+	}
+	
+	public JRadioButtonMenuItem getGrbyItem() {
+		return grbyItem;
+	}
+	
+	public JRadioButtonMenuItem getMcogItem() {
+		return mcogItem;
+	}
+	
+	/* Get methods to access general menu items */
+	public JMenu getGameMenu() {
+		return gameMenu;
+	}
+	
+	public JMenuItem getAboutItem() {
+		return aboutItem;
+	}
+	
+	public JMenu getSettingsMenu() {
+		return settingsMenu;
+	}
+	
+	/* Get methods to access game menu items */
+	public JMenuItem getRestartItem() {
+		return restartItem;
+	}
+	
+	public JMenuItem getStopItem() {
+		return stopItem;
+	}
+	
+	public JMenuItem getCleanBestScoreItem() {
+		return cleanBestScoreItem;
 	}
 	
 	/* Get method to access themeChosen */

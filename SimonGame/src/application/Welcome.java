@@ -151,7 +151,6 @@ public class Welcome extends JFrame {
 				
 				/* Translate the startButton text using the getTranslation method */
 				startButton.setText(internationalization.getTranslation(languageList.getSelectedIndex(), "START"));
-				
 			}
 		});
 		add(languageList);
@@ -273,6 +272,32 @@ public class Welcome extends JFrame {
 					soundChosen = 1;
 					gameFrame.setSoundChosen(soundChosen);
 				}
+				
+				/* ---------------------------------------- INTERNATIONALIZATION ----------------------------------------------*/
+				/* Translate the game menu texts using the getTranslation method */
+				gameFrame.getGameMenu().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "GAME"));
+				gameFrame.getStopItem().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Stop"));
+				gameFrame.getRestartItem().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Restart"));
+				gameFrame.getCleanBestScoreItem().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Clean") + " " +
+						internationalization.getTranslation(languageList.getSelectedIndex(), "best") + " " +
+						internationalization.getTranslation(languageList.getSelectedIndex(), "score"));
+				/* Translate the settings menu texts using the getTranslation method */
+				gameFrame.getSettingsMenu().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "SETTINGS"));
+				/* Translate the difficulties texts using the getTranslation method */
+				gameFrame.getDifficultyMenu().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Difficulty"));
+				gameFrame.getEasyDifficulty().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Easy"));
+				gameFrame.getMediumDifficulty().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Medium"));
+				gameFrame.getHardDifficulty().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Hard"));
+				/* Translate the sounds texts using the getTranslation method */
+				gameFrame.getSoundMenu().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Sound"));
+				gameFrame.getSoundOn().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "On"));
+				gameFrame.getSoundOff().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Off"));
+				/* Translate the themes texts using the getTranslation method */
+				gameFrame.getThemeMenu().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Theme"));
+				gameFrame.getGrbyItem().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Green/Red/Blue/Yellow"));
+				gameFrame.getMcogItem().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Magenta/Cyan/Orange/Gray"));
+				/* Translate the ? menu texts using the getTranslation method */
+				gameFrame.getAboutItem().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "About"));
 				
 				gameFrame.setVisible(true);
 			}
