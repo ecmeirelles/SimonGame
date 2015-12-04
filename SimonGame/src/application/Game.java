@@ -56,6 +56,7 @@ public class Game extends JFrame {
 	/* What color is brighter */
 	public int activeColor = 0;
 	private int level = 0;
+	public int language;
 	private static int bestScore = 0;
 	private ArrayList<Integer> gameSequence = new ArrayList<Integer>();
 	private boolean gameOver = false;
@@ -66,7 +67,6 @@ public class Game extends JFrame {
 	private DifficultyFunctions simonDifficulties = new DifficultyFunctions(this);
 	/* ActionListener in GameFunction is executed each 0.03 seconds */
 	public Timer timer = new Timer(30, simonFunction);
-	public Welcome welcome;
 	
 	/* Constants to standardize all fonts */
 	public final String FONT_MENU = "Andalus";
@@ -271,7 +271,7 @@ public class Game extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				new About().setVisible(true);
+				new About(Game.this).setVisible(true);
 			}
 		});
 		questionMenu.add(aboutItem);
@@ -491,5 +491,14 @@ public class Game extends JFrame {
 		else if(soundChosen == 1) {
 			soundOffItem.setSelected(true);
 		}
+	}
+	
+	/* Method to Get and Set the language chosen */
+	public int getLanguage() {
+		return language;
+	}
+	
+	public void setLanguage(int index) {
+		this.language = index;
 	}
 }

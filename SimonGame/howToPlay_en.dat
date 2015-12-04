@@ -1,0 +1,6 @@
+The game has four colored buttons, each producing a specific \n
+sound when it is pressed or activated by the computer. A round \n
+in the game consists of the computer lighting up one or more \n
+buttons in a random order, after which the player must reproduce \n
+that order by pressing the buttons. As the game progresses, the \n
+number of buttons to be pressed increases.

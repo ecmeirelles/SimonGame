@@ -111,6 +111,10 @@ public class Welcome extends JFrame {
 			
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
+				/* ---------------------------------------------- WELCOME ------------------------------------------------------*/
+				/* Translate the frame's title using the getTranslation method */
+				setTitle("Simon | " + internationalization.getTranslation(languageList.getSelectedIndex(), "Settings"));
+				
 				/* Translate the gameDescription text using the getTranslation method, word by word */
 				gameDescription.setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Customize") + " " + 
 						internationalization.getTranslation(languageList.getSelectedIndex(), "your") + " " +
@@ -274,6 +278,9 @@ public class Welcome extends JFrame {
 				}
 				
 				/* ---------------------------------------- INTERNATIONALIZATION ----------------------------------------------*/
+				/* ----------------------------------------------- GAME -------------------------------------------------------*/
+				/* Translate the frame's title using getTranslation method */
+				gameFrame.setTitle("Simon | " + internationalization.getTranslation(languageList.getSelectedIndex(), "Play"));
 				/* Translate the game menu texts using the getTranslation method */
 				gameFrame.getGameMenu().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "GAME"));
 				gameFrame.getStopItem().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Stop"));
@@ -299,6 +306,7 @@ public class Welcome extends JFrame {
 				/* Translate the ? menu texts using the getTranslation method */
 				gameFrame.getAboutItem().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "About"));
 				
+				gameFrame.setLanguage(languageList.getSelectedIndex());
 				gameFrame.setVisible(true);
 			}
 		});

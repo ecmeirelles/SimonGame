@@ -1,0 +1,6 @@
+O jogo possui quatro botões coloridos, cada um  produzindo um \n
+som específico quando é pressionado ou ativado pelo computador. \n
+Uma rodada do jogo consiste em o computador acender um ou \n
+mais botões em uma ordem randômica, onde depois de cada uma \n
+o jogador deve repetir a ordem clicando nos botões. A medida que \n
+o  jogo avança, o número de botões a serem pressionados aumenta.
