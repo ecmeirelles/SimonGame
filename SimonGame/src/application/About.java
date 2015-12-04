@@ -47,7 +47,7 @@ public class About extends JFrame {
 				
 		/* Create the window - size = 500x400 and start = (600, 400) */
 		setBounds(600, 400, 500, 400);
-		setTitle("Simon | " + internationalization.getTranslation(game.getLanguage(), "About"));
+		setTitle(internationalization.getTranslation(game.getLanguage(), "AboutTitle"));
 		/* Disable resize */
 		setResizable(false);
 		
@@ -59,13 +59,9 @@ public class About extends JFrame {
 		howToPlayPanel = new JPanel();
 		howToPlayPanel.setLayout(null);
 		/* Add panel, using internationalization into JTabbedPane */
-		tabbedPane.addTab(internationalization.getTranslation(game.getLanguage(), "HOW") + " " +
-				internationalization.getTranslation(game.getLanguage(), "TO") + " " +
-				internationalization.getTranslation(game.getLanguage(), "PLAY"), null, howToPlayPanel, null);
+		tabbedPane.addTab(internationalization.getTranslation(game.getLanguage(), "HowToPlay").toUpperCase(), null, howToPlayPanel, null);
 		
-		howToPlayLabel = new JLabel(internationalization.getTranslation(game.getLanguage(), "How") + " " +
-				internationalization.getTranslation(game.getLanguage(), "to") + " " +
-				internationalization.getTranslation(game.getLanguage(), "play"));
+		howToPlayLabel = new JLabel(internationalization.getTranslation(game.getLanguage(), "HowToPlay"));
 		howToPlayLabel.setFont(new Font(FONT_TITLE, Font.BOLD, 18));
 		howToPlayLabel.setBounds(30, 40, 200, 30);
 		howToPlayPanel.add(howToPlayLabel);
@@ -81,7 +77,7 @@ public class About extends JFrame {
 		historyPanel = new JPanel();
 		historyPanel.setLayout(null);
 		/* Add panel, using internationalization, into JTabbedPane */
-		tabbedPane.addTab(internationalization.getTranslation(game.getLanguage(), "HISTORY"), null, historyPanel, null);
+		tabbedPane.addTab(internationalization.getTranslation(game.getLanguage(), "History").toUpperCase(), null, historyPanel, null);
 		
 		historyLabel = new JLabel(internationalization.getTranslation(game.getLanguage(), "History"));
 		historyLabel.setFont(new Font(FONT_TITLE, Font.BOLD, 18));
@@ -99,7 +95,7 @@ public class About extends JFrame {
 		curiositiesPanel = new JPanel();
 		curiositiesPanel.setLayout(null);
 		/* Add panel, using internationalization into JTabbedPane */
-		tabbedPane.addTab(internationalization.getTranslation(game.getLanguage(), "CURIOSITIES"), null, curiositiesPanel, null);
+		tabbedPane.addTab(internationalization.getTranslation(game.getLanguage(), "Curiosities").toUpperCase(), null, curiositiesPanel, null);
 		
 		curiositiesLabel = new JLabel(internationalization.getTranslation(game.getLanguage(), "Curiosities"));
 		curiositiesLabel.setFont(new Font(FONT_TITLE, Font.BOLD, 18));
@@ -116,6 +112,7 @@ public class About extends JFrame {
 		curiositiesPanel.add(scrollPane);
 	}
 	
+	/* Method to read How to Play text */
 	public String readHowToPlay() {
 		String string;
 		/* Initialize readers with null */
@@ -159,6 +156,7 @@ public class About extends JFrame {
 		return howToPlayText;
 	}
 	
+	/* Method to read History text */
 	public String readHistory() {
 		String string;
 		/* Initialize readers with null */
@@ -202,6 +200,7 @@ public class About extends JFrame {
 		return historyText;
 	}
 	
+	/* Method to read Curiosities text */
 	public String readCuriosities() {
 		String string;
 		/* Initialize readers with null */

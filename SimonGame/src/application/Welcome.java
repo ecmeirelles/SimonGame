@@ -113,19 +113,24 @@ public class Welcome extends JFrame {
 			public void valueChanged(ListSelectionEvent e) {
 				/* ---------------------------------------------- WELCOME ------------------------------------------------------*/
 				/* Translate the frame's title using the getTranslation method */
-				setTitle("Simon | " + internationalization.getTranslation(languageList.getSelectedIndex(), "Settings"));
+				setTitle(internationalization.getTranslation(languageList.getSelectedIndex(), "WelcomeTitle"));
 				
 				/* Translate the gameDescription text using the getTranslation method, word by word */
-				gameDescription.setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Customize") + " " + 
-						internationalization.getTranslation(languageList.getSelectedIndex(), "your") + " " +
-				        internationalization.getTranslation(languageList.getSelectedIndex(), "own") + " " + 
-						internationalization.getTranslation(languageList.getSelectedIndex(), "game") + ":");
+				gameDescription.setText(internationalization.getTranslation(languageList.getSelectedIndex(), "CustomizeGame"));
 				/* Translate the gameLanguage text using the getTranslation method */
-				gameLanguage.setText(internationalization.getTranslation(languageList.getSelectedIndex(), "LANGUAGE") + ":");
+				gameLanguage.setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Language").toUpperCase() + ":");
 				/* Translate the gameThemeLabel text using the getTranslation method */
-				gameThemeLabel.setText(internationalization.getTranslation(languageList.getSelectedIndex(), "THEME") + ":");
+				gameThemeLabel.setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Theme").toUpperCase() + ":");
 				/* Translate the difficultyLabel text using the getTranslation method */
-				gameDifficultyLabel.setText(internationalization.getTranslation(languageList.getSelectedIndex(), "DIFFICULTY") + ":");
+				gameDifficultyLabel.setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Difficulty").toUpperCase() + ":");
+				/* Translate the soundLabel text using the getTranslation method */
+				soundLabel.setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Sound").toUpperCase() + ":");
+				
+				/* To translate the themeComboBox elements, first of all it is needed to set remove them */
+				themeComboBox.removeAllItems();
+				/* And translate the elements text using the getTranslation method */
+				themeComboBox.addItem(internationalization.getTranslation(languageList.getSelectedIndex(), "Green/Red/Blue/Yellow"));
+				themeComboBox.addItem(internationalization.getTranslation(languageList.getSelectedIndex(), "Magenta/Cyan/Orange/Gray"));
 				
 				/* To translate the lableTabel, first of all it is needed to set paintLabels as false */
 				difficultySlider.setPaintLabels(false);
@@ -141,20 +146,12 @@ public class Welcome extends JFrame {
 				/* Finally, set paintLabels as true again */
 				difficultySlider.setPaintLabels(true);
 				
-				/* Translate the soundLabel text using the getTranslation method */
-				soundLabel.setText(internationalization.getTranslation(languageList.getSelectedIndex(), "SOUND") + ":");
 				/* Translate soundOn and soundOff texts using the getTranslation method */
 				soundOn.setText(internationalization.getTranslation(languageList.getSelectedIndex(), "On"));
-				soundOff.setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Off"));
-				
-				/* To translate the themeComboBox elements, first of all it is needed to set remove them */
-				themeComboBox.removeAllItems();
-				/* And translate the elements text using the getTranslation method */
-				themeComboBox.addItem(internationalization.getTranslation(languageList.getSelectedIndex(), "Green/Red/Blue/Yellow"));
-				themeComboBox.addItem(internationalization.getTranslation(languageList.getSelectedIndex(), "Magenta/Cyan/Orange/Gray"));	
+				soundOff.setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Off"));	
 				
 				/* Translate the startButton text using the getTranslation method */
-				startButton.setText(internationalization.getTranslation(languageList.getSelectedIndex(), "START"));
+				startButton.setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Start").toUpperCase());
 			}
 		});
 		add(languageList);
@@ -280,16 +277,14 @@ public class Welcome extends JFrame {
 				/* ---------------------------------------- INTERNATIONALIZATION ----------------------------------------------*/
 				/* ----------------------------------------------- GAME -------------------------------------------------------*/
 				/* Translate the frame's title using getTranslation method */
-				gameFrame.setTitle("Simon | " + internationalization.getTranslation(languageList.getSelectedIndex(), "Play"));
+				gameFrame.setTitle(internationalization.getTranslation(languageList.getSelectedIndex(), "GameTitle"));
 				/* Translate the game menu texts using the getTranslation method */
-				gameFrame.getGameMenu().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "GAME"));
+				gameFrame.getGameMenu().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Game").toUpperCase());
 				gameFrame.getStopItem().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Stop"));
 				gameFrame.getRestartItem().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Restart"));
-				gameFrame.getCleanBestScoreItem().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Clean") + " " +
-						internationalization.getTranslation(languageList.getSelectedIndex(), "best") + " " +
-						internationalization.getTranslation(languageList.getSelectedIndex(), "score"));
+				gameFrame.getCleanBestScoreItem().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "CleanBestScore"));
 				/* Translate the settings menu texts using the getTranslation method */
-				gameFrame.getSettingsMenu().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "SETTINGS"));
+				gameFrame.getSettingsMenu().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Settings").toUpperCase());
 				/* Translate the difficulties texts using the getTranslation method */
 				gameFrame.getDifficultyMenu().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Difficulty"));
 				gameFrame.getEasyDifficulty().setText(internationalization.getTranslation(languageList.getSelectedIndex(), "Easy"));
