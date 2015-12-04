@@ -26,6 +26,7 @@ import drawing.DrawingPanel;
 import functions.BeepFunction;
 import functions.DifficultyFunctions;
 import functions.GameFunction;
+import internationalization.Internationalization;
 
 /* Class that represents the main window of the game, where the game is played */
 public class Game extends JFrame {
@@ -65,6 +66,7 @@ public class Game extends JFrame {
 	private DrawingPanel simonArea = new DrawingPanel(this);
 	private GameFunction simonFunction = new GameFunction(this, simonArea);
 	private DifficultyFunctions simonDifficulties = new DifficultyFunctions(this);
+	private Internationalization internationalization = new Internationalization();
 	/* ActionListener in GameFunction is executed each 0.03 seconds */
 	public Timer timer = new Timer(30, simonFunction);
 	
@@ -185,7 +187,13 @@ public class Game extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				int optionPane = JOptionPane.showConfirmDialog(null, "Stop means Game Over. Do you really want that?", "Simon | Stop", JOptionPane.YES_NO_OPTION);
+				/* Apply internationalization to the buttons and title */
+				UIManager.put("OptionPane.yesButtonText", internationalization.getTranslation(getLanguage(), "Yes"));
+				UIManager.put("OptionPane.noButtonText", internationalization.getTranslation(getLanguage(), "No"));
+				UIManager.put("OptionPane.cancelButtonText", internationalization.getTranslation(getLanguage(), "Cancel"));
+				UIManager.put("OptionPane.titleText", internationalization.getTranslation(getLanguage(), "StopTitle"));
+				
+				int optionPane = JOptionPane.showConfirmDialog(null, internationalization.getTranslation(getLanguage(), "StopMessage"));
 				/* If the players confirms */
 				if(optionPane == 0) {
 					gameOver = true;
@@ -201,7 +209,13 @@ public class Game extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				int optionPane = JOptionPane.showConfirmDialog(null, "Do you really want to clean your best score?", "Simon | Best Score", JOptionPane.YES_NO_OPTION);
+				/* Apply internationalization to the buttons and title */
+				UIManager.put("OptionPane.yesButtonText", internationalization.getTranslation(getLanguage(), "Yes"));
+				UIManager.put("OptionPane.noButtonText", internationalization.getTranslation(getLanguage(), "No"));
+				UIManager.put("OptionPane.cancelButtonText", internationalization.getTranslation(getLanguage(), "Cancel"));
+				UIManager.put("OptionPane.titleText", internationalization.getTranslation(getLanguage(), "BestScoreTitle"));
+				
+				int optionPane = JOptionPane.showConfirmDialog(null, internationalization.getTranslation(getLanguage(), "BestScoreMessage"));
 				/* If the players confirms */
 				if(optionPane == 0) {
 					setBestScore(0);
