@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import application.Game;
 import internationalization.Internationalization;
 
+/* Class that represents the drawing of the game, where all rectangles, colors and strings are painted */
 public class DrawingPanel extends JPanel {
 	/* DrawingPanel attributes */
 	private static final long serialVersionUID = 1L;

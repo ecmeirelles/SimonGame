@@ -14,7 +14,7 @@ import javax.swing.JTextArea;
 
 import internationalization.Internationalization;
 
-/* Class that represents a explanation of the game. It appears when the player clicks in About */
+/* Class that represents an explanation of the game. It appears when the player clicks in About menu */
 public class About extends JFrame {
 	/* About attributes */
 	private static final long serialVersionUID = 1L;

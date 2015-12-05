@@ -24,7 +24,7 @@ import javax.swing.UIManager;
 
 import drawing.DrawingPanel;
 import functions.BeepFunction;
-import functions.DifficultyFunctions;
+import functions.DifficultyFunction;
 import functions.GameFunction;
 import internationalization.Internationalization;
 
@@ -65,7 +65,7 @@ public class Game extends JFrame {
 	private BeepFunction beep = new BeepFunction();
 	private DrawingPanel simonArea = new DrawingPanel(this);
 	private GameFunction simonFunction = new GameFunction(this, simonArea);
-	private DifficultyFunctions simonDifficulties = new DifficultyFunctions(this);
+	private DifficultyFunction simonDifficulties = new DifficultyFunction(this);
 	private Internationalization internationalization = new Internationalization();
 	/* ActionListener in GameFunction is executed each 0.03 seconds */
 	public Timer timer = new Timer(30, simonFunction);
@@ -280,7 +280,7 @@ public class Game extends JFrame {
 		/* Create a menu called ? inside menu bar */
 		questionMenu = new JMenu("?");
 		menuBar.add(questionMenu);
-		/* Create a menu item called How to Play inside ? menu */
+		/* Create a menu item called About inside ? menu */
 		aboutItem = new JMenuItem("About");
 		aboutItem.addActionListener(new ActionListener() {
 			

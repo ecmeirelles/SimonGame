@@ -5,13 +5,13 @@ import java.awt.event.ActionListener;
 
 import application.Game;
 
-/* Class that represents the functions regarding difficulty of the game */
-public class DifficultyFunctions implements ActionListener {
+/* Class that represents the actionListener regarding difficulty of the game */
+public class DifficultyFunction implements ActionListener {
 	/* DifficultyFunctions attributes */
 	Game game;
 	
 	/* Constructor to receive current information of Game*/
-	public DifficultyFunctions(Game simonGame) {
+	public DifficultyFunction(Game simonGame) {
 		this.game = simonGame;
 	}
 	
@@ -24,26 +24,20 @@ public class DifficultyFunctions implements ActionListener {
 		if(game.getEasyDifficulty().isSelected()) {
 			/* Change timer to 0.03 seconds */
 			game.timer.setDelay(30);
-			/* Restart timer */
-			game.timer.restart();
 		}
 		/* If difficulty chosen (by the menu) is medium */
 		else if(game.getMediumDifficulty().isSelected()) {
 			/* Change timer to 0.02 seconds */
 			game.timer.setDelay(20);
-			/* Restart timer */
-			game.timer.restart();
 		}
 		/* If difficulty chosen (by the menu) is hard */
 		else if(game.getHardDifficulty().isSelected()) {
 			/* Change timer to 0.01 seconds */
 			game.timer.setDelay(10);
-			/* Restart timer */
-			game.timer.restart();
 		}
 		
-		/* Start asking for the ActionListener */
-		game.timer.start();
+		/* Restart timer */
+		game.timer.restart();
 	}
 
 }

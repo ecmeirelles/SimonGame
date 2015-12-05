@@ -3,7 +3,7 @@ package internationalization;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-/* Class that represents the usage of internationalization */
+/* Class that represents the usage of internationalization in the game */
 public class Internationalization {
 	/* Method to get the word and translate it */
 	public String getTranslation(int index, String needTranslation) {
