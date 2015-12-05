@@ -219,6 +219,7 @@ public class Game extends JFrame {
 				/* If the players confirms */
 				if(optionPane == 0) {
 					setBestScore(0);
+
 					simonArea.repaint();
 				}
 			}
@@ -307,7 +308,7 @@ public class Game extends JFrame {
 	public ArrayList<Integer> getGameSequence() {
 		return gameSequence;
 	}
-	
+
 	/* Get and Set methods to access and modify, respectively, the bestScore attribute.
 	 * In this case, I/O from file has been used to do this. */
 	public int getBestScore() {
@@ -354,6 +355,7 @@ public class Game extends JFrame {
 			ex.printStackTrace();
 		}
 	}
+	
 	
 	/* Get and Set methods to access and modify, respectively, the attribute level */
 	public int getLevel() {

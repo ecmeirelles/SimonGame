@@ -77,6 +77,10 @@ public class GameFunction implements ActionListener {
 						if(game.getSoundOn().isSelected()) {
 							/* Set the specific beep for this color */
 							beep.getBeep(game.activeColor);
+							/* Give a little more time so the sound can play properly */
+							if(game.getHardDifficulty().isSelected()) {
+								delay = delay + 2;
+							}
 						}
 						
 						/* Add this number to the game sequence */
@@ -91,6 +95,10 @@ public class GameFunction implements ActionListener {
 						if(game.getSoundOn().isSelected()) {
 							/* Set the specific beep for this color */
 							beep.getBeep(game.activeColor);
+							/* Give a little more time so the sound can play properly */
+							if(game.getHardDifficulty().isSelected()) {
+								delay = delay + 2;
+							}
 						}
 						
 						/* Add this number to the game sequence */
